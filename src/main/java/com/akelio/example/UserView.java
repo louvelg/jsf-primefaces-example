@@ -1,14 +1,16 @@
 package com.akelio.example;
 
+import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 @ViewScoped
 @ManagedBean(name = "userView")
-public class UserView {
+public class UserView implements Serializable {
 
-	private String	value	= "This editor is provided by PrimeFaces";
+	private static final long	serialVersionUID	= -8713917093506866982L;
+	private String				name				= "John";
 
 	public UserView() {
 		super();
@@ -17,15 +19,14 @@ public class UserView {
 
 	@PostConstruct
 	public void init() {
-		System.out.println("---------");
 	}
 
-	public String getValue() {
-		return value;
+	public String getName() {
+		return name;
 	}
 
-	public void setValue(String value) {
-		this.value = value;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
