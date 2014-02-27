@@ -11,10 +11,22 @@
 </h:head>
 <h:body>
 	<h1>Hello World</h1>
- 
 	<h:form>
 		<p><h:outputText value="Hello #{userView.name} !!!"/></p>
+		<a onclick="dialog.show();" href="#">
+			<h:outputText value="Open primefaces dialog" />
+		</a>
 	</h:form>
- 
+ 	<p:dialog widgetVar="dialog">
+ 		<f:facet name="header">
+            <h:outputText value="Dialog" />
+		</f:facet>
+		<div>
+			<h:outputText value="Test dialog" />
+		</div>
+		<div>
+			<a href="#" onclick="dialog.hide()"><h:outputText value="Close" /></a>
+		</div>
+ 	</p:dialog>
 </h:body>
 </html>

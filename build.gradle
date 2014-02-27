@@ -1,16 +1,3 @@
-ext {
-	springVersion = "4.0.2.RELEASE"
-}
-
-buildscript {
-    repositories {
-        maven { url "http://repo.spring.io/libs-snapshot" }
-        mavenLocal()
-    }
-}
-
-
-
 apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'eclipse'
@@ -29,12 +16,12 @@ eclipse {
 		natures 'org.springsource.ide.eclipse.gradle.core.nature', 'org.eclipse.jdt.groovy.core.groovyNature', 'org.eclipse.wst.common.project.facet.core.nature'
 	}
 	classpath {
-		containers 'org.springsource.ide.eclipse.gradle.classpathcontainer', 'GROOVY_SUPPORT'
+		containers 'org.springsource.ide.eclipse.gradle.classpathcontainer'
 	}
 	wtp {
 		facet {
-		  facet (name: 'jst.web', version: '3.0')
-		  facet (name: 'wst.jsdt.web', version: '1.0')
+		  facet name: 'jst.web', version: '3.0'
+		  facet name: 'java', version: '1.7'
 		}
 	}
 	jdt {
@@ -45,7 +32,6 @@ eclipse {
 
 repositories {
     mavenCentral()
-    maven { url "http://repo.spring.io/libs-snapshot" }
 }
 
 dependencies {
@@ -54,9 +40,5 @@ dependencies {
 	compile 'com.sun.faces:jsf-impl:2.2.5'
 	//compile 'javax.servlet.jsp:jsp-api:2.2'
 	//compile 'org.glassfish.web:el-impl:2.2'	
-	//compile 'org.primefaces:primefaces:4.0'
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.11'
+	compile 'org.primefaces:primefaces:4.0'
 }
