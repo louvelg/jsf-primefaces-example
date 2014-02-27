@@ -32,6 +32,9 @@ eclipse {
 
 repositories {
     mavenCentral()
+	maven {
+		url "http://repository.primefaces.org"
+	}
 }
 
 dependencies {
@@ -41,4 +44,5 @@ dependencies {
 	//compile 'javax.servlet.jsp:jsp-api:2.2'
 	//compile 'org.glassfish.web:el-impl:2.2'	
 	compile 'org.primefaces:primefaces:4.0'
+	compile 'org.primefaces.themes:bootstrap:1.0.10'
 }
