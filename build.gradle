@@ -9,9 +9,15 @@ buildscript {
     }
 }
 
+
+
 apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp'
+
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
 
 jar {
     baseName = 'jsf-primefaces-example'
@@ -20,10 +26,20 @@ jar {
 
 eclipse {
 	project {
-		natures 'org.springsource.ide.eclipse.gradle.core.nature', 'org.eclipse.jdt.groovy.core.groovyNature'
+		natures 'org.springsource.ide.eclipse.gradle.core.nature', 'org.eclipse.jdt.groovy.core.groovyNature', 'org.eclipse.wst.common.project.facet.core.nature'
 	}
 	classpath {
 		containers 'org.springsource.ide.eclipse.gradle.classpathcontainer', 'GROOVY_SUPPORT'
+	}
+	wtp {
+		facet {
+		  facet (name: 'jst.web', version: '3.0')
+		  facet (name: 'wst.jsdt.web', version: '1.0')
+		}
+	}
+	jdt {
+		sourceCompatibility = 1.7
+		targetCompatibility = 1.7
 	}
 }
 
