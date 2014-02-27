@@ -9,8 +9,7 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean(name = "userView")
 public class UserView implements Serializable {
 
-	private static final long	serialVersionUID	= -8713917093506866982L;
-	private String				name				= "John";
+	private String	name	= "John";
 
 	public UserView() {
 		super();
